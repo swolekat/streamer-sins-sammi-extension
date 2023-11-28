@@ -44,6 +44,7 @@
   <div class="bottom-bar" id="bottom-bar">
 
   </div>
+  <audio src="https://swolekat.github.io/streamer-sins-sammi-extension/assets/ding.mp3" autoplay></audio>
   <script>
       const topBarElement = document.getElementById('streamer-sin-count');
       const bottomBarElement = document.getElementById('bottom-bar');
@@ -60,9 +61,6 @@
           setTimeout(() => {
               topBarElement.style.display = 'block';
               bottomBarElement.style.display = 'block';
-              const audio = new Audio('https://swolekat.github.io/streamer-sins-sammi-extension/assets/ding.mp3');
-              audio.volume = 1;
-              audio.play();
               setTimeout(() => {
                   topBarElement.style.display = 'none';
                   bottomBarElement.style.display = 'none';
