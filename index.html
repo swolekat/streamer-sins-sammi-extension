@@ -50,7 +50,10 @@
       const init = () => {
           const urlParams = new URLSearchParams(window.location.search);
           const count = Number.parseInt(urlParams.get('count'));
-          const message = urlParams.get('message');
+          const message = decodeURI(urlParams.get('message'));
+          if(!message){
+              return;
+          }
           topBarElement.innerText = `Streamer Sin Count: ${count}`;
           bottomBarElement.innerText = message;
 
