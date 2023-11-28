@@ -50,16 +50,19 @@
       const init = () => {
           const urlParams = new URLSearchParams(window.location.search);
           const count = Number.parseInt(urlParams.get('count'));
-          const message = urlParams.get('message');
+          const message = decodeURI(urlParams.get('message'));
+          if(!message){
+              return;
+          }
           topBarElement.innerText = `Streamer Sin Count: ${count}`;
           bottomBarElement.innerText = message;
+          const audio = new Audio('https://swolekat.github.io/streamer-sins-sammi-extension/assets/ding.mp3');
+          audio.volume = 1;
+          audio.play();
 
           setTimeout(() => {
               topBarElement.style.display = 'block';
               bottomBarElement.style.display = 'block';
-              const audio = new Audio('https://swolekat.github.io/streamer-sins-sammi-extension/assets/ding.mp3');
-              audio.volume = 1;
-              audio.play();
               setTimeout(() => {
                   topBarElement.style.display = 'none';
                   bottomBarElement.style.display = 'none';
