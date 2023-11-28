@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>streamer sins</title>
+  <style>
+      *, *:before, *:after {
+          box-sizing: border-box;
+      }
+    html, body {
+        height: 100%;
+        width: 100%;
+        padding: 0;
+        margin: 0;
+        position: relative;
+    }
+    .top-bar,
+    .bottom-bar {
+        width: 100%;
+        background: #000;
+        color: #fff;
+        position: absolute;
+        font-size: 36px;
+        font-family: sans-serif;
+        padding: 10px 20px;
+        display: none;
+    }
+
+    .top-bar {
+        top: 0;
+        left: 0;
+    }
+
+    .bottom-bar {
+        bottom: 0;
+        text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="top-bar" id="streamer-sin-count">
+
+  </div>
+  <div class="bottom-bar" id="bottom-bar">
+
+  </div>
+  <script>
+      const topBarElement = document.getElementById('streamer-sin-count');
+      const bottomBarElement = document.getElementById('bottom-bar');
+      const init = () => {
+          const urlParams = new URLSearchParams(window.location.search);
+          const count = Number.parseInt(urlParams.get('count'));
+          const message = urlParams.get('message');
+          topBarElement.innerText = `Streamer Sin Count: ${count}`;
+          bottomBarElement.innerText = message;
+
+          setTimeout(() => {
+              topBarElement.style.display = 'block';
+              bottomBarElement.style.display = 'block';
+              const audio = new Audio('https://swolekat.github.io/streamer-sins-sammi-extension/assets/ding.mp3');
+              audio.volume = 1;
+              audio.play();
+              setTimeout(() => {
+                  topBarElement.style.display = undefined;
+                  bottomBarElement.style.display = undefined;
+              }, 10000);
+          }, 0);
+      };
+
+      init();
+  </script>
+
+</body>
+</html>
