@@ -19,7 +19,7 @@ You should modify the trigger to be whatever your channel point is. Make sure th
 
 Modify the commands to point to your source that you just made:
 
-![Browser source](./readme-images/browser%20source.png)
+![Commands to modify](./readme-images/commands%20to%20change.png)
 
 
 ## Customization
